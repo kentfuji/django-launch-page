@@ -34,10 +34,10 @@ class AjaxableResponseMixin(object):
 
 	#adding e-mail adding functionality
 	def send_email_to_user(self,form):
-		from_email = 'Chipsy dev team <no-reply@%s>' % settings.PROJECT_DOMAIN
+		from_email = '%s Dev team <no-reply@%s>' % settings.PROJECT_TITLE % settings.PROJECT_EMAIL
 		to = [form.instance.email_address,]
-		subject = "Welcome to %s!" % settings.PROJECT_NAME
-		ctx = {'email':form.instance.email_address,'site':settings.PROJECT_NAME}
+		subject = "Welcome to %s!" % settings.PROJECT_TITLE
+		ctx = {'email':form.instance.email_address,'site':settings.PROJECT_TITLE}
 		message = get_template('emails/registered.html').render(Context(ctx))
 		msg = EmailMessage(subject, message, to=to, from_email=from_email)
 		msg.content_subtype = 'html'
