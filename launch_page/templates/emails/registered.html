@@ -1,0 +1,11 @@
+{% extends "emails/base.html" %}
+{% load i18n %}
+
+{% block body %}<p xmlns="http://www.w3.org/1999/html">{% trans 'Hello,' %}</p>
+
+<p>{% blocktrans %} Thank you for your interest in {{site}}.{% endblocktrans %}</p>
+<p>{% blocktrans %} We are currently developing the website, and we will let you know through the address you registered, {{email}}, when the website is complete. Please stay tuned!{% endblocktrans %}</p>
+
+<p>{% blocktrans %}In the meanwhile, please let your friends and colleagues know about us!{% endblocktrans %}</p>
+
+{% endblock %}
