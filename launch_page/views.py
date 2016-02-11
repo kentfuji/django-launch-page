@@ -34,7 +34,7 @@ class AjaxableResponseMixin(object):
 
 	#adding e-mail adding functionality
 	def send_email_to_user(self,form):
-		from_email = '%s Dev team <no-reply@%s>' % settings.PROJECT_TITLE % settings.PROJECT_EMAIL
+		from_email = 'Dev team <no-reply@%s>'  % settings.PROJECT_EMAIL
 		to = [form.instance.email_address,]
 		subject = "Welcome to %s!" % settings.PROJECT_TITLE
 		ctx = {'email':form.instance.email_address,'site':settings.PROJECT_TITLE}
@@ -42,7 +42,7 @@ class AjaxableResponseMixin(object):
 		msg = EmailMessage(subject, message, to=to, from_email=from_email)
 		msg.content_subtype = 'html'
 		msg.send()
-
+		
 	def form_valid(self, form):
 		def create_inquiry(specification):
 			return Inquiry.objects.create(**specification)
