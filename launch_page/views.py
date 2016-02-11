@@ -9,6 +9,7 @@ from django.views.generic.edit import CreateView
 from .forms import InquiryForm
 from .models import Inquiry
 
+#editing
 
 class AjaxableResponseMixin(object):
 	"""
