@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 class InquiryForm(forms.ModelForm):
 	class Meta:
 		model = Inquiry
-		fields = ('email_address', 'first_name', 'last_name')
+		fields = ('email_address', 'nickname')
 
 	#cleaning and checking whether the email address
 	def clean_email_address(self):

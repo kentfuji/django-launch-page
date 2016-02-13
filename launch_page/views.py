@@ -50,14 +50,12 @@ class AjaxableResponseMixin(object):
 		self.send_email_to_user(form)
 		if self.request.is_ajax():
 			data = {
-				'first_name': form.instance.first_name,
-				'last_name': form.instance.last_name,
+				'nickname': form.instance.nickname,
 				'email_address': form.instance.email_address,
 			}
 
 			newInquiry = {
-				"first_name": form.instance.first_name,
-				"last_name": form.instance.last_name,
+				"nickname": form.instance.nickname,
 				"email_address": form.instance.email_address,
 				"ip_address": self.request.META['REMOTE_ADDR'],
 			}
