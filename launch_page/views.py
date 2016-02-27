@@ -37,7 +37,11 @@ class AjaxableResponseMixin(object):
 		from_email = 'Dev team <%s>'  % settings.PROJECT_EMAIL
 		to = [form.instance.email_address,]
 		subject = "Welcome to %s!" % settings.PROJECT_TITLE
-		ctx = {'email':form.instance.email_address,'site':settings.PROJECT_TITLE}
+		ctx = {
+			'email':form.instance.email_address,
+			'site':settings.PROJECT_TITLE,
+			'nickname':form.instance.nickname
+		}
 		message = get_template('emails/registered.html').render(Context(ctx))
 		msg = EmailMessage(subject, message, to=to, from_email=from_email)
 		msg.content_subtype = 'html'
